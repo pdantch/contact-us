@@ -1,11 +1,11 @@
 import mongoose from 'mongoose'
 
-const ContactSchema = mongoose.Schema({
+const Contact = mongoose.Schema({
   name: { type: String, required: true },
   email: { type: String, required: true },
   text: { type: String, required: true, unique: true }
 })
 
-const Contact = mongoose.models.Contact || mongoose.model('Contact', ContactSchema)
+const ContactSchema = mongoose.models.Contact || mongoose.model('Contact', Contact)
 
-export default Contact
+export default ContactSchema

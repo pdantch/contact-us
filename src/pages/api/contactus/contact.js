@@ -1,21 +1,20 @@
-import contactController from './contactController';
+import ContactController from './ContactController';
 
 export default async function handler(req, res) {
-	let message = ''
-	let cod = 200
+	let responseBody = ''
+	let statusCode = 200
 	try {
-		const data = await contactController.createContact(req.body)
-		message = { message: `${process.env.MSG_APPRECIATE1} ${data.name} ${process.env.MSG_APPRECIATE2}` }
+		const data = await ContactController.createContact(req.body)
+		responseBody = { message: `${process.env.MSG_APPRECIATE1} ${data.name} ${process.env.MSG_APPRECIATE2}` }
 	} catch (err) {
 		console.log(err)
-		cod = 501
+		statusCode = 501
 		if (err.message === process.env.ERROR_DUPLICATE) {
-			message = { error: err.message }
-			cod = 400
+			responseBody = { error: err.message }
+			statusCode = 400
 		} else {
-			message = { error: process.env.ERROR_SAVE }
+			responseBody = { error: process.env.ERROR_SAVE }
 		}
 	}
-	res.status(cod).json(message)
-	res.end()
+	res.status(statusCode).json(responseBody)
 }
