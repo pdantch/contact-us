@@ -14,7 +14,6 @@ O projeto **Contact Us** é uma aplicação web construída com Next.js e React 
 
 - [Next.js](https://nextjs.org/)
 - [React](https://reactjs.org/)
-- [Qualquer outra tecnologia que você esteja usando, como bibliotecas para validação ou envio de e-mails]
 
 ## Como Contribuir
 
